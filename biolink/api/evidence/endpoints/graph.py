@@ -35,7 +35,7 @@ class EvidenceGraphObject(Resource):
         ## assoc = get_association(id)
         
         results = search_associations(fq={'id':id}, user_agent=USER_AGENT)
-        assoc = results['associations'][0] if len(results['associations']) > 0 else {}
+        assoc = results['associations'][0]
         eg = assoc.get('evidence_graph')
         return [eg]
 

@@ -1,10 +1,9 @@
 import yaml
-from os import path, environ
+from os import path
 
 # Flask settings
 FLASK_SERVER_NAME = 'api.geneontology.org'
-FLASK_DEBUG = eval(environ['FLASK_DEBUG']) if 'FLASK_DEBUG' in environ else True
-FLASK_USE_RELOADER = eval(environ['FLASK_USE_RELOADER']) if 'FLASK_USE_RELOADER' in environ else True
+FLASK_DEBUG = True  # Do not use debug mode in production
 
 # Flask-Restplus settings
 RESTPLUS_SWAGGER_UI_DOC_EXPANSION = 'list'
@@ -29,12 +28,12 @@ def get_biolink_config():
     global biolink_config
     if biolink_config is None:
         with open(CONFIG, 'r') as f:
-            biolink_config = yaml.load(f, Loader=yaml.FullLoader)
+            biolink_config = yaml.load(f)
     return biolink_config
 
 def get_route_mapping():
     global route_mapping
     if route_mapping is None:
         with open(ROUTES, 'r') as FH:
-            route_mapping = yaml.load(FH, Loader=yaml.FullLoader)
+            route_mapping = yaml.load(FH)
     return route_mapping

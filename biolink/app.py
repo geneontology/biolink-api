@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import logging.config
 from os import path
 
@@ -76,7 +74,7 @@ def main():
     #initialize_app(app)
     preload_ontologies()
     log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(app.config['SERVER_NAME']))
-    app.run(debug=settings.FLASK_DEBUG, use_reloader=settings.FLASK_USE_RELOADER)
+    app.run(debug=settings.FLASK_DEBUG)
 
 if __name__ == "__main__":
     main()

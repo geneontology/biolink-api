@@ -1,8 +1,7 @@
 from scigraph.scigraph_util import SciGraph
-from biolink.settings import get_biolink_config
 import json
 
-sg = SciGraph(get_biolink_config()['scigraph_data']['url'])
+sg = SciGraph()
 
 def test_node():
     n = sg.node(id="MP:0000272")
